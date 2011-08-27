@@ -15,6 +15,26 @@ describe "Diff::LCS.diff" do
     change_diff(correct_backward_diff).should == diff_s2_s1
   end
 
+# describe "should, when diffing 'aX' and 'bXaX'," do
+#   before(:each) do
+#     @s1 = "aX"
+#     @s2 = "bXaX"
+#     @correct_diff = [
+#       [ [ '+', 0, 'b' ],
+#         [ '+', 1, 'X' ] ]
+#     ]
+#   end
+#
+#   it "compare them correctly forward" do
+#     change_diff(@correct_diff).should == Diff::LCS.diff(@s1, @s2)
+#   end
+#
+#   it "compare them correctly backward" do
+#     @correct_diff.each { |hunk| hunk.each { |change| change[0] = '-' } }
+#     change_diff(@correct_diff).should == Diff::LCS.diff(@s2, @s1)
+#   end
+# end
+
   it "should correctly diff against an empty sequence" do
     diff = Diff::LCS.diff(word_sequence, [])
     correct_diff = [
